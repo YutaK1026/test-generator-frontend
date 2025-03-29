@@ -1,0 +1,45 @@
+@use "@/app/styles/variables" as *;
+@use "sass:color";
+
+.buttonsContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 500px;
+  margin-top: 40px;
+}
+
+.backButton {
+  padding: 12px 40px;
+  font-size: $font-small-size;
+  background-color: #f5f5f5;
+  color: $font-color;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #e0e0e0;
+  }
+}
+
+.nextButton {
+  padding: 12px 40px;
+  font-size: $font-small-size;
+  background-color: $primary-color;
+  color: $background-color;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: color.adjust($primary-color, $lightness: -10%);
+  }
+
+  &:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+}

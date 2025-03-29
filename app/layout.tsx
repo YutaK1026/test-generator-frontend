@@ -4,6 +4,7 @@ import "@radix-ui/themes";
 import "@/app/styles/global.scss";
 import Header from "../components/Header";
 import NextAuthProvider from "@/app/_auth";
+import { TestGeneratorProvider } from "@/app/contexts/TestGeneratorContext";
 import styles from "./layout.module.scss";
 
 const jetBrainsMono = JetBrains_Mono({
@@ -25,8 +26,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={jetBrainsMono.className}>
         <NextAuthProvider>
-          <Header />
-          <main className={styles.main}>{children}</main>
+          <TestGeneratorProvider>
+            <Header />
+            <main className={styles.main}>{children}</main>
+          </TestGeneratorProvider>
         </NextAuthProvider>
       </body>
     </html>

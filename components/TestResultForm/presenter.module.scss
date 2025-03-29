@@ -1,0 +1,134 @@
+@use "@/app/styles/variables" as *;
+@use "sass:color";
+
+.formContent {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.resultContainer {
+  width: 100%;
+  background-color: $background-color;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin-bottom: 40px;
+}
+
+.resultHeader {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.resultTitle {
+  font-size: $font-middle-size;
+  color: $font-color;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.resultSubtitle {
+  font-size: $font-small-size;
+  color: #666;
+}
+
+.resultPreview {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.previewItem {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.questionNumber {
+  width: 30px;
+  font-weight: bold;
+  color: $primary-color;
+}
+
+.questionText {
+  flex: 1;
+  font-weight: bold;
+}
+
+.answerText {
+  color: #666;
+  margin-left: 20px;
+}
+
+.previewDots {
+  text-align: center;
+  padding: 10px 0;
+  color: #666;
+  font-weight: bold;
+}
+
+.resultActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.backButton {
+  padding: 10px 20px;
+  font-size: $font-small-size;
+  background-color: #f5f5f5;
+  color: $font-color;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #e0e0e0;
+  }
+}
+
+.actionButtons {
+  display: flex;
+  gap: 15px;
+}
+
+.downloadButton,
+.retryButton {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: $font-small-size;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.downloadButton {
+  background-color: $primary-color;
+  color: $background-color;
+
+  &:hover {
+    background-color: color.adjust($primary-color, $lightness: -10%);
+  }
+}
+
+.retryButton {
+  background-color: #f5f5f5;
+  color: $font-color;
+
+  &:hover {
+    background-color: #e0e0e0;
+  }
+}
+
+.buttonIcon {
+  margin-right: 8px;
+  font-size: 14px;
+}
