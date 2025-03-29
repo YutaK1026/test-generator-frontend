@@ -1,0 +1,44 @@
+@use "@/app/styles/variables" as *;
+
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  height: 92px;
+  padding: 0 24px;
+  background-color: $background-color;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding-left: 40px;
+
+    &-image {
+      width: 64px;
+      height: 64px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: right;
+    gap: 40px;
+    padding-right: 56px;
+
+    &-link {
+      font-size: $font-middle-size;
+      color: $font-color;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      display: inline-block;
+      border-bottom: 2px solid $font-color;
+
+      &:hover {
+        color: $primary-color;
+        border-bottom-color: $primary-color;
+      }
+    }
+  }
+}

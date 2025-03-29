@@ -1,0 +1,79 @@
+@use "@/app/styles/variables" as *;
+
+.mobile_menu_container {
+  position: relative;
+  
+  .hamburger_button {
+    padding: 0.5rem;
+    
+  }
+
+  .menu_icon {
+    padding-top: 1rem;
+    padding-left: 0.5rem;
+  }
+
+  .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 16rem;
+    background-color: $background-color;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1100;
+
+    &.open {
+      transform: translateX(0);
+    }
+
+    &.closed {
+      transform: translateX(-100%);
+    }
+
+    .menu_nav {
+      padding-top: 1rem; // pt-16 equivalent
+    }
+
+    .menu_list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem; // space-y-2 equivalent
+    }
+    .menu_link {
+      display: block;
+      padding: 0.5rem 1rem; // px-4 py-2 equivalent
+      font-size: 1rem; // text-sm equivalent
+      color: #4b5563; // text-gray-700 equivalent
+      text-decoration: none;
+
+      &:hover {
+        background-color: $hover-color; // hover:bg-gray-100 equivalent
+        color: #374151; // Optional: Slightly darker on hover
+      }
+    }
+
+    .menu_auth {
+      padding: 1rem; // px-4 py-4 equivalent
+    }
+    .menu_child_mode {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .menu_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); // bg-black bg-opacity-50 equivalent
+    z-index: 30;
+    cursor: pointer;
+  }
+}

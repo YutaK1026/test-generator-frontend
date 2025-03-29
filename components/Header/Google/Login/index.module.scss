@@ -1,0 +1,8 @@
+@use "@/app/styles/variables" as *;
+
+.button {
+  height: 44px;
+  &:hover {
+    background-color: $hover-color;
+  }
+}

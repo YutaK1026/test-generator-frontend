@@ -1,0 +1,25 @@
+@use "@/app/styles/variables" as *;
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $background-color;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  &:hover {
+    background-color: $hover-color;
+  }
+}
+
+.button_disable {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $background-color;
+  color: $hover-color;
+  width: 44px;
+  height: 44px;
+  flex: none;
+}
