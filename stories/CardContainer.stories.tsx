@@ -14,7 +14,6 @@ const meta: Meta<typeof CardContainer> = {
 export default meta;
 type Story = StoryObj<typeof CardContainer>;
 
-// サンプルカードデータ
 const sampleCards: CardItem[] = [
   {
     id: "1",

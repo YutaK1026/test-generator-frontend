@@ -1,6 +1,8 @@
 @use "@/app/styles/variables" as *;
 
 .header {
+  position: fixed;
+  top: 0px;
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
@@ -8,7 +10,8 @@
   padding: 0 24px;
   background-color: $background-color;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 100%;
+  width: 100vw;
+  z-index: 100;
 
   &__logo {
     display: flex;

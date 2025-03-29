@@ -1,0 +1,120 @@
+@use "@/app/styles/variables" as *;
+
+.card {
+  max-width: 400px;
+  margin: 40px auto;
+}
+
+.cardHeader {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.cardTitle {
+  font-size: $font-large-size;
+  color: $font-color;
+  text-align: left;
+  padding: 0 24px;
+  font-weight: bold;
+}
+
+.cardDescription {
+  font-size: $font-small-size;
+  color: $font-color;
+  text-align: left;
+  padding: 12px 24px;
+}
+
+.cardContent {
+  padding: 0 24px 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: $font-small-size;
+  margin-bottom: 4px;
+  color: $font-color;
+}
+
+.input {
+  padding: 10px;
+  font-size: $font-small-size;
+  border: 1px solid $hover-color;
+  border-radius: 6px;
+  background-color: $background-color;
+
+  &:focus {
+    outline: none;
+    border-color: $font-color;
+  }
+}
+
+.formGroupCheckbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: $background-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkboxIndicator {
+  color: $background-color;
+  font-size: 16px;
+}
+
+.checkboxLabel {
+  font-size: 14px;
+  color: $font-color;
+}
+
+.error {
+  color: $error-color;
+}
+
+.submitButton {
+  margin-top: 16px;
+  padding: 12px;
+  font-size: 16px;
+  background-color: $primary-color;
+  color: $background-color;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.secondaryButton {
+  margin-top: 8px;
+  padding: 10px;
+  font-size: 14px;
+  background: none;
+  border: none;
+  color: $primary-color;
+  text-decoration: underline;
+  cursor: pointer;
+  align-self: center;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

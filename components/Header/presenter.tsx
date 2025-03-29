@@ -1,9 +1,8 @@
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import styles from './presenter.module.scss';
-import { GoogleAuthButton } from './Google';
-import { MobileMenu } from './HambergerMenu';
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import styles from "./presenter.module.scss";
+import { MobileMenu } from "./HambergerMenu";
 
 export interface HeaderPresenterProps {
   isMobile: boolean;
@@ -14,11 +13,10 @@ export interface HeaderPresenterProps {
 export const HeaderPresenter: React.FC<HeaderPresenterProps> = ({
   isMobile,
   isMenuOpen,
-  toggleMenu
+  toggleMenu,
 }) => {
   return (
     <header className={styles.header}>
-      {/* PC版 */}
       {!isMobile && (
         <>
           <Link href="/" className={styles.header__logo}>
@@ -37,16 +35,15 @@ export const HeaderPresenter: React.FC<HeaderPresenterProps> = ({
             <Link href="/help" className={styles.header__nav_link}>
               help
             </Link>
+            <Link href="/login" className={styles.header__nav_link}>
+              login
+            </Link>
           </nav>
-          <div className={styles.header__login}>
-            <GoogleAuthButton />
-          </div>
         </>
       )}
 
-      {/* モバイル版：ハンバーガーメニュー */}
       {isMobile && (
-        <MobileMenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu}/>
+        <MobileMenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
       )}
     </header>
   );

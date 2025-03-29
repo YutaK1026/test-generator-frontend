@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono } from 'next/font/google';
+import { JetBrains_Mono } from "next/font/google";
 import "@radix-ui/themes";
 import "@/app/styles/global.scss";
 import Header from "../components/Header";
 import NextAuthProvider from "@/app/_auth";
+import styles from "./layout.module.scss";
 
 const jetBrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -25,7 +26,7 @@ export default function RootLayout({
       <body className={jetBrainsMono.className}>
         <NextAuthProvider>
           <Header />
-          {children}
+          <main className={styles.main}>{children}</main>
         </NextAuthProvider>
       </body>
     </html>

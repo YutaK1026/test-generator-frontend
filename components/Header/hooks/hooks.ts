@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 export const useMediaQuery = (query: string): boolean => {
   const [matches, setMatches] = useState(false);
@@ -12,25 +12,25 @@ export const useMediaQuery = (query: string): boolean => {
     }
 
     const listener = () => setMatches(media.matches);
-    media.addEventListener('change', listener);
-    
-    return () => media.removeEventListener('change', listener);
+    media.addEventListener("change", listener);
+
+    return () => media.removeEventListener("change", listener);
   }, [matches, query]);
 
   return matches;
 };
 
 export const useHeaderHooks = () => {
-  const isMobile = useMediaQuery('(max-width: 768px)');
+  const isMobile = useMediaQuery("(max-width: 768px)");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-  }
+  };
 
   return {
     isMobile,
     isMenuOpen,
-    toggleMenu
+    toggleMenu,
   };
 };

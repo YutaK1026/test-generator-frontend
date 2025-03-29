@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import React from "react";
 import Link from "next/link";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { HiMiniXMark } from "react-icons/hi2";
 import { IconButton } from "@/components/ui/IconButton";
-import { GoogleAuthButton } from "../Google";
 import styles from "./index.module.scss";
 import { ButtonSizeProp } from "@/app/types/button";
+import { useOutsideClick } from "./hooks/hooks";
 
 export interface MobileMenuProps {
   isMenuOpen: boolean;
@@ -16,22 +16,10 @@ export interface MobileMenuProps {
 
 export const MobileMenu: React.FC<MobileMenuProps> = ({
   isMenuOpen,
-  toggleMenu
+  toggleMenu,
 }) => {
-  const menuRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        toggleMenu()
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  // カスタムフックで外側クリックを検知
+  const menuRef = useOutsideClick<HTMLDivElement>(toggleMenu);
 
   return (
     <div className={styles.mobile_menu_container}>
@@ -59,14 +47,24 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
           <ul className={styles.menu_list}>
             <li className={styles.menu_item}>
               <Link href="/" className={styles.menu_link} onClick={toggleMenu}>
-                ホーム
+                home
+              </Link>
+              <Link
+                href="/help"
+                className={styles.menu_link}
+                onClick={toggleMenu}
+              >
+                help
+              </Link>
+              <Link
+                href="/login"
+                className={styles.menu_link}
+                onClick={toggleMenu}
+              >
+                login
               </Link>
             </li>
           </ul>
-
-          <div className={styles.menu_auth}>
-            <GoogleAuthButton />
-          </div>
         </nav>
       </div>
       {isMenuOpen && (
@@ -78,4 +76,4 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
       )}
     </div>
   );
-}
+};
