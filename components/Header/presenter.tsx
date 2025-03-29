@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import './presenter.scss';
+import styles from './presenter.module.scss';
 import { GoogleAuthButton } from './Google';
 import { MobileMenu } from './HambergerMenu';
 
@@ -17,28 +17,28 @@ export const HeaderPresenter: React.FC<HeaderPresenterProps> = ({
   toggleMenu
 }) => {
   return (
-    <header className="header">
+    <header className={styles.header}>
       {/* PC版 */}
       {!isMobile && (
         <>
-          <Link href="/" className="header__logo">
+          <Link href="/" className={styles.header__logo}>
             <Image
               src="/icon.png"
               alt="Logo"
               width={64}
               height={64}
-              className="header__logo-image"
+              className={styles.header__logo_image}
             />
           </Link>
-          <nav className="header__nav">
-            <Link href="/" className="header__nav-link">
+          <nav className={styles.header__nav}>
+            <Link href="/" className={styles.header__nav_link}>
               home
             </Link>
-            <Link href="/help" className="header__nav-link">
+            <Link href="/help" className={styles.header__nav_link}>
               help
             </Link>
           </nav>
-          <div className="header__login">
+          <div className={styles.header__login}>
             <GoogleAuthButton />
           </div>
         </>
