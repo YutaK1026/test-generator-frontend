@@ -10,7 +10,7 @@ const TestCreateButtonPresenter: React.FC = () => {
   return (
     <>
       {status === "authenticated" ? (
-        <Link href="/post" className={styles.menu_link}>
+        <Link href="/create" className={styles.menu_link}>
           <FaPlus className={styles.icon} size={32} color="white" />
         </Link>
       ) : (

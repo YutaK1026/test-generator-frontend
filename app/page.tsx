@@ -2,12 +2,14 @@ import React from "react";
 import CardContainer from "@/components/CardContainer";
 import { CardItem } from "@/components/CardContainer/presenter";
 import TestCreateButton from "@/components/TestCreateButton";
+import AuthWrapper from "@/components/AuthWrapper";
 
-// カードに表示するモックデータ
+// カードに表示するモックデータ (将来的にはDBから取得)
 const cardItems: CardItem[] = [
   {
     id: "1",
-    imgSrc: "https://via.placeholder.com/245x180/13BAB3/ffffff?text=テスト基本機能",
+    imgSrc:
+      "https://via.placeholder.com/245x180/13BAB3/ffffff?text=テスト基本機能",
     title: "テストジェネレーター基本機能",
   },
   {
@@ -17,17 +19,20 @@ const cardItems: CardItem[] = [
   },
   {
     id: "3",
-    imgSrc: "https://via.placeholder.com/245x180/13BAB3/ffffff?text=パフォーマンス",
+    imgSrc:
+      "https://via.placeholder.com/245x180/13BAB3/ffffff?text=パフォーマンス",
     title: "パフォーマンステスト",
   },
   {
     id: "4",
-    imgSrc: "https://via.placeholder.com/245x180/13BAB3/ffffff?text=セキュリティ",
+    imgSrc:
+      "https://via.placeholder.com/245x180/13BAB3/ffffff?text=セキュリティ",
     title: "セキュリティテスト",
   },
   {
     id: "5",
-    imgSrc: "https://via.placeholder.com/245x180/13BAB3/ffffff?text=クロスブラウザ",
+    imgSrc:
+      "https://via.placeholder.com/245x180/13BAB3/ffffff?text=クロスブラウザ",
     title: "クロスブラウザテスト",
   },
   {
@@ -50,8 +55,10 @@ const cardItems: CardItem[] = [
 export default function Home() {
   return (
     <main>
-      <CardContainer cards={cardItems} />
-      <TestCreateButton />
+      <AuthWrapper>
+        <CardContainer cards={cardItems} />
+        <TestCreateButton />
+      </AuthWrapper>
     </main>
   );
 }
