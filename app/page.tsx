@@ -1,6 +1,7 @@
 import React from "react";
 import CardContainer from "@/components/CardContainer";
 import { CardItem } from "@/components/CardContainer/presenter";
+import TestCreateButton from "@/components/TestCreateButton";
 
 // カードに表示するモックデータ
 const cardItems: CardItem[] = [
@@ -50,6 +51,7 @@ export default function Home() {
   return (
     <main>
       <CardContainer cards={cardItems} />
+      <TestCreateButton />
     </main>
   );
 }

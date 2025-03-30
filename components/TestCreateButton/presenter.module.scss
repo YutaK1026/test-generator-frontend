@@ -1,0 +1,32 @@
+
+@use "@/app/styles/variables" as *;
+
+.menu_link {
+  position: fixed;
+  bottom: 80px;
+  right: 100px;
+  background-color: $primary-color;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, transform 0.3s;
+
+  &:hover {
+    background-color: $hover-color;
+  }
+
+  &.active {
+    background-color: #ffe4e1; // アクティブ時の背景色
+    transform: scale(1.1);
+  }
+  @media (max-width: 767px) {
+    bottom: 60px;
+    right: 50px;
+  }
+}
