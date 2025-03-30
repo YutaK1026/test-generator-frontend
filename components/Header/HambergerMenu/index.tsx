@@ -27,7 +27,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        toggleMenu()
+        toggleMenu
       }
     };
 
