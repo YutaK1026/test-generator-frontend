@@ -16,8 +16,13 @@
   justify-content: center;
   transition: background-color 0.2s, transform 0.3s;
 
-  &:hover {
-    background-color: $hover-color;
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba($primary-color, 0.5);
+  }
+
+  &:hover:not(.disabled) {
+    background-color: darken($primary-color, 10%);
   }
 
   &.active {
