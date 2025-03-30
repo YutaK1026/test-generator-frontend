@@ -32,7 +32,7 @@ export const useHeaderHooks = () => {
   return {
     isMobile,
     isMenuOpen,
-    toggleMenu,
+    toggleMenu
   };
 };
 
