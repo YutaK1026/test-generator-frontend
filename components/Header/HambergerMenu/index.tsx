@@ -12,15 +12,19 @@ import { useOutsideClick } from "./hooks/hooks";
 export interface MobileMenuProps {
   isMenuOpen: boolean;
   toggleMenu: () => void;
+  status: "authenticated" | "loading" | "unauthenticated";
+  logout: () => void;
 }
 
 export const MobileMenu: React.FC<MobileMenuProps> = ({
   isMenuOpen,
   toggleMenu,
+  status,
+  logout,
 }) => {
   const menuRef = useRef<HTMLDivElement>(null);
   useOutsideClick(menuRef, () => toggleMenu());
-  
+
   return (
     <div className={styles.mobile_menu_container}>
       <div className={styles.hamburger_button}>
@@ -56,17 +60,20 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
               >
                 help
               </Link>
-              <Link
-                href="/login"
-                className={styles.menu_link}
-                onClick={toggleMenu}
-              >
-                login
-              </Link>
+              {status === "unauthenticated" ? (
+                <Link href="/login" className={styles.menu_link}>
+                  login
+                </Link>
+              ) : (
+                <div onClick={() => logout()} className={styles.menu_link}>
+                  logout
+                </div>
+              )}
             </li>
           </ul>
         </nav>
       </div>
+      {/* メニューが開いている時，外側をクリックした時に閉じて欲しい為 */}
       {isMenuOpen && (
         <div
           className={styles.menu_overlay}

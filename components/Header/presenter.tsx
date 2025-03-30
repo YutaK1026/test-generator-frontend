@@ -8,12 +8,16 @@ export interface HeaderPresenterProps {
   isMobile: boolean;
   isMenuOpen: boolean;
   toggleMenu: () => void;
+  status: "authenticated" | "loading" | "unauthenticated";
+  logout: () => void;
 }
 
 export const HeaderPresenter: React.FC<HeaderPresenterProps> = ({
   isMobile,
   isMenuOpen,
   toggleMenu,
+  status,
+  logout,
 }) => {
   return (
     <header className={styles.header}>
@@ -35,15 +39,26 @@ export const HeaderPresenter: React.FC<HeaderPresenterProps> = ({
             <Link href="/help" className={styles.header__nav_link}>
               help
             </Link>
-            <Link href="/login" className={styles.header__nav_link}>
-              login
-            </Link>
+            {status === "unauthenticated" ? (
+              <Link href="/login" className={styles.header__nav_link}>
+                login
+              </Link>
+            ) : (
+              <div onClick={() => logout()} className={styles.header__nav_link}>
+                logout
+              </div>
+            )}
           </nav>
         </>
       )}
 
       {isMobile && (
-        <MobileMenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
+        <MobileMenu
+          isMenuOpen={isMenuOpen}
+          toggleMenu={toggleMenu}
+          status={status}
+          logout={logout}
+        />
       )}
     </header>
   );

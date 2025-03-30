@@ -2,10 +2,9 @@
 
 .mobile_menu_container {
   position: relative;
-  
+
   .hamburger_button {
     padding: 0.5rem;
-    
   }
 
   .menu_icon {
@@ -34,7 +33,7 @@
     }
 
     .menu_nav {
-      padding-top: 1rem; // pt-16 equivalent
+      padding-top: 1rem;
     }
 
     .menu_list {
@@ -43,23 +42,24 @@
       margin: 0;
       display: flex;
       flex-direction: column;
-      gap: 0.5rem; // space-y-2 equivalent
+      gap: 0.5rem;
     }
     .menu_link {
       display: block;
-      padding: 0.5rem 1rem; // px-4 py-2 equivalent
-      font-size: 1rem; // text-sm equivalent
-      color: #4b5563; // text-gray-700 equivalent
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      color: #4b5563;
       text-decoration: none;
+      cursor: pointer;
 
       &:hover {
-        background-color: $hover-color; // hover:bg-gray-100 equivalent
-        color: #374151; // Optional: Slightly darker on hover
+        background-color: $hover-color;
+        color: #374151;
       }
     }
 
     .menu_auth {
-      padding: 1rem; // px-4 py-4 equivalent
+      padding: 1rem;
     }
     .menu_child_mode {
       margin-bottom: 1rem;
@@ -72,7 +72,7 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5); // bg-black bg-opacity-50 equivalent
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 30;
     cursor: pointer;
   }

@@ -2,9 +2,11 @@
 
 import React from "react";
 import { HeaderPresenter } from "./presenter";
-import { useHeaderHooks } from "./hooks/hooks";
+import { useHeaderHooks, useLogout } from "./hooks/hooks";
+import { useSession } from "next-auth/react";
 
 export const Header: React.FC = () => {
+  const { status } = useSession();
   const { isMobile, isMenuOpen, toggleMenu } = useHeaderHooks();
 
   return (
@@ -12,6 +14,8 @@ export const Header: React.FC = () => {
       isMobile={isMobile}
       isMenuOpen={isMenuOpen}
       toggleMenu={toggleMenu}
+      status={status}
+      logout={useLogout}
     />
   );
 };

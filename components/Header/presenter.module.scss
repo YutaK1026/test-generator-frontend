@@ -30,12 +30,12 @@
     justify-content: right;
     gap: 40px;
     padding-right: 56px;
+    cursor: pointer;
 
     &_link {
       font-size: $font-middle-size;
       color: $font-color;
       text-decoration: none;
-      transition: color 0.3s ease;
       display: inline-block;
       border-bottom: 2px solid $font-color;
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { signOut } from "next-auth/react";
 
 export const useMediaQuery = (query: string): boolean => {
   const [matches, setMatches] = useState(false);
@@ -33,4 +34,8 @@ export const useHeaderHooks = () => {
     isMenuOpen,
     toggleMenu,
   };
+};
+
+export const useLogout = () => {
+  signOut();
 };
