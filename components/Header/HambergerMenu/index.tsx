@@ -7,7 +7,7 @@ import { HiMiniXMark } from "react-icons/hi2";
 import { IconButton } from "@/components/ui/IconButton";
 import styles from "./index.module.scss";
 import { ButtonSizeProp } from "@/app/types/button";
-// import { useOutsideClick } from "./hooks/hooks";
+import { useOutsideClick } from "./hooks/hooks";
 
 export interface MobileMenuProps {
   isMenuOpen: boolean;
@@ -23,19 +23,8 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
   logout,
 }) => {
   const menuRef = useRef<HTMLDivElement>(null);
-  // useOutsideClick(menuRef, () => toggleMenu());
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        toggleMenu
-      }
-    };
+  useOutsideClick(menuRef, toggleMenu);
 
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
   return (
     <div className={styles.mobile_menu_container}>
       <div className={styles.hamburger_button}>

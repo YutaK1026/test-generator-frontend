@@ -7,7 +7,7 @@ export function useOutsideClick<T extends HTMLDivElement>(
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (ref.current && !ref.current.contains(event.target as Node)) {
-        callback();
+        callback
       }
     };
 
