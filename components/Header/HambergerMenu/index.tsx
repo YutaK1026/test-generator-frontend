@@ -7,7 +7,7 @@ import { HiMiniXMark } from "react-icons/hi2";
 import { IconButton } from "@/components/ui/IconButton";
 import styles from "./index.module.scss";
 import { ButtonSizeProp } from "@/app/types/button";
-import { useOutsideClick } from "./hooks/hooks";
+// import { useOutsideClick } from "./hooks/hooks";
 
 export interface MobileMenuProps {
   isMenuOpen: boolean;
