@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import Link from "next/link";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { HiMiniXMark } from "react-icons/hi2";
@@ -18,9 +18,9 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
   isMenuOpen,
   toggleMenu,
 }) => {
-  // カスタムフックで外側クリックを検知
-  const menuRef = useOutsideClick<HTMLDivElement>(toggleMenu);
-
+  const menuRef = useRef<HTMLDivElement>(null);
+  useOutsideClick(menuRef, () => toggleMenu());
+  
   return (
     <div className={styles.mobile_menu_container}>
       <div className={styles.hamburger_button}>
