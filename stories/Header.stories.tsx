@@ -24,18 +24,20 @@ export const DesktopView: StoryObj<typeof HeaderPresenter> = {
       isMobile={false}
       isMenuOpen={false}
       toggleMenu={() => {}}
+      status="authenticated"
+      logout={() => {}}
     />
   ),
 };
 
 export const MobileView: StoryObj<typeof HeaderPresenter> = {
   render: () => (
-    <HeaderPresenter isMobile={true} isMenuOpen={false} toggleMenu={() => {}} />
+    <HeaderPresenter isMobile={true} isMenuOpen={false} toggleMenu={() => {}} status="authenticated" logout={() => {}}/>
   ),
 };
 
 export const MobileMenuOpen: StoryObj<typeof HeaderPresenter> = {
   render: () => (
-    <HeaderPresenter isMobile={true} isMenuOpen={true} toggleMenu={() => {}} />
+    <HeaderPresenter isMobile={true} isMenuOpen={true} toggleMenu={() => {}} status="authenticated" logout={() => {}}/>
   ),
 };
