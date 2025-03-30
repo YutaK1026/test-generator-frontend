@@ -25,7 +25,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        toggleMenu
+        () => toggleMenu
       }
     };
 
@@ -34,7 +34,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-  
+
   return (
     <div className={styles.mobile_menu_container}>
       <div className={styles.hamburger_button}>
