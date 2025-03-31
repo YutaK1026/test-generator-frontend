@@ -25,7 +25,10 @@ const authOptions: NextAuthOptions = {
       },
     }),
   ],
-  secret: "cZuHMOlmxMngBOgl/OyCyq+LqOUzLwi+3mJgz0BUDTU="
+  secret:
+    process.env.NODE_ENV === "production"
+      ? "cZuHMOlmxMngBOgl/OyCyq+LqOUzLwi+3mJgz0BUDTU="
+      : undefined,
 };
 
 const handler = NextAuth(authOptions);
