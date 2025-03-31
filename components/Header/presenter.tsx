@@ -3,12 +3,13 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./presenter.module.scss";
 import { MobileMenu } from "./HambergerMenu";
+import type { status } from "@/app/types/nextAuthStatus";
 
 export interface HeaderPresenterProps {
   isMobile: boolean;
   isMenuOpen: boolean;
   toggleMenu: () => void;
-  status: "authenticated" | "loading" | "unauthenticated";
+  status: status;
   logout: () => void;
 }
 

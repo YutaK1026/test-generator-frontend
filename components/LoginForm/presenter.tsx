@@ -1,26 +1,33 @@
-"use client";
-
 import React from "react";
 import * as Label from "@radix-ui/react-label";
 import * as Checkbox from "@radix-ui/react-checkbox";
 import { FaRegCheckCircle } from "react-icons/fa";
-import { Card } from "@radix-ui/themes";
-import { useLoginForm } from "./hooks/hooks";
 import styles from "./presenter.module.scss";
+import { Card } from "@radix-ui/themes";
 
-export const LoginFormPresenter: React.FC = () => {
-  const {
-    email,
-    setEmail,
-    password,
-    setPassword,
-    remember,
-    setRemember,
-    isError,
-    handleSubmit,
-    handleSecondary,
-  } = useLoginForm();
+interface LoginFormPresenterProps {
+  email: string;
+  setEmail: React.Dispatch<React.SetStateAction<string>>;
+  password: string;
+  setPassword: React.Dispatch<React.SetStateAction<string>>;
+  remember: boolean;
+  setRemember: React.Dispatch<React.SetStateAction<boolean>>;
+  isError: boolean;
+  handleSubmit: (e: React.FormEvent) => Promise<void>;
+  handleSecondary: () => void;
+}
 
+export const LoginFormPresenter: React.FC<LoginFormPresenterProps> = ({
+  email,
+  setEmail,
+  password,
+  setPassword,
+  remember,
+  setRemember,
+  isError,
+  handleSubmit,
+  handleSecondary,
+}) => {
   return (
     <Card className={styles.card}>
       <div className={styles.cardHeader}>

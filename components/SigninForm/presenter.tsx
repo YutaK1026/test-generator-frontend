@@ -1,22 +1,28 @@
-"use client";
-
 import React from "react";
 import * as Label from "@radix-ui/react-label";
 import { Card } from "@radix-ui/themes";
-import { useSigninForm } from "./hooks/hooks";
+
 import styles from "./presenter.module.scss";
 
-export const SigninFormPresenter: React.FC = () => {
-  const {
-    email,
-    setEmail,
-    name,
-    setName,
-    password,
-    setPassword,
-    handleSubmit,
-  } = useSigninForm();
+interface SigninFormPresenterProps {
+  email: string;
+  setEmail: React.Dispatch<React.SetStateAction<string>>;
+  name: string;
+  setName: React.Dispatch<React.SetStateAction<string>>;
+  password: string;
+  setPassword: React.Dispatch<React.SetStateAction<string>>;
+  handleSubmit: (e: React.FormEvent) => Promise<void>;
+}
 
+export const SigninFormPresenter: React.FC<SigninFormPresenterProps> = ({
+  email,
+  setEmail,
+  name,
+  setName,
+  password,
+  setPassword,
+  handleSubmit,
+}) => {
   return (
     <Card className={styles.card}>
       <div className={styles.cardHeader}>

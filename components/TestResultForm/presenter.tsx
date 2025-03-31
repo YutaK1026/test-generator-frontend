@@ -5,10 +5,15 @@ import styles from "./presenter.module.scss";
 import { FormLayout } from "@/components/ui/FormLayout";
 import { TEST_GENERATOR_STEPS, TestGeneratorState } from "@/app/types/steps";
 import { FaDownload, FaRedo } from "react-icons/fa";
-import { generateWordList } from "@/app/utils/pdfGenerator"; // プレビュー用に単語リスト生成関数をインポート
+
+type wordsProps = {
+  english: string;
+  japanese: string;
+}[];
 
 export interface TestResultFormPresenterProps {
   state: TestGeneratorState;
+  words: wordsProps;
   handleBack: () => void;
   handleDownload: () => void;
   handleRetry: () => void;
@@ -16,8 +21,7 @@ export interface TestResultFormPresenterProps {
 
 export const TestResultFormPresenter: React.FC<
   TestResultFormPresenterProps
-> = ({ state, handleBack, handleDownload, handleRetry }) => {
-  const words = generateWordList(state); // プレビュー用に単語リストを生成
+> = ({ state, words, handleBack, handleDownload, handleRetry }) => {
   const modeText =
     state.questionMode === "random" ? "ランダム選択モード" : "範囲指定モード";
 
