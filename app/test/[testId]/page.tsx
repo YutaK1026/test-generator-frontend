@@ -1,5 +1,6 @@
 import React from "react";
 import { TestPreview } from "@/components/TestPreview";
+import styles from "./page.module.scss";
 
 interface TestPreviewPageProps {
   params: Promise<{
@@ -14,7 +15,11 @@ const TestPreviewPage: React.FC<TestPreviewPageProps> = async ({ params }) => {
     return <div>無効なテストIDです。</div>;
   }
 
-  return <TestPreview testId={testId} />;
+  return (
+    <main className={styles.main}>
+      <TestPreview testId={testId} />
+    </main>
+  );
 };
 
 export default TestPreviewPage;
