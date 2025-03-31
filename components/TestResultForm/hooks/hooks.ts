@@ -15,12 +15,17 @@ export const useTestResultForm = () => {
   const handleDownload = () => {
     try {
       const pdfDataUri = generatePDF(state);
-      const link = document.createElement("a");
-      link.href = pdfDataUri;
-      link.download = `${state.vocabularyType}_test.pdf`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+      if (isIOS) {
+        window.open(pdfDataUri, "_blank");
+      } else {
+        const link = document.createElement("a");
+        link.href = pdfDataUri;
+        link.download = `${state.vocabularyType}_test.pdf`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
     } catch (error) {
       console.error("PDF generation failed:", error);
     }
