@@ -30,7 +30,6 @@
     justify-content: right;
     gap: 40px;
     padding-right: 56px;
-    cursor: pointer;
 
     &_link {
       font-size: $font-middle-size;
@@ -38,6 +37,7 @@
       text-decoration: none;
       display: inline-block;
       border-bottom: 2px solid $font-color;
+      cursor: pointer;
 
       &:hover {
         color: $primary-color;
