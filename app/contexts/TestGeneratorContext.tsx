@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useState, ReactNode } from "react";
-import { QuestionMode, TestGeneratorState } from "@/app/types/steps";
+import { QuestionMode, TestGeneratorState, OutputFormat } from "@/app/types/steps";
 import type { VocabularyType } from "@/app/types/vocabulary";
 
 const initialState: TestGeneratorState = {
@@ -10,7 +10,7 @@ const initialState: TestGeneratorState = {
   questionMode: "random",
   wordCount: 20,
   customSettings: {
-    outputFormat: ["english-to-japanese"],
+    outputFormat: "english-to-japanese",
     excludePrevious: false,
   },
 };
@@ -22,6 +22,7 @@ interface TestGeneratorContextType {
   updateQuestionMode: (mode: QuestionMode) => void;
   updateWordCount: (count: number) => void;
   updateCustomSettings: (settings: Record<string, unknown>) => void;
+  updateOutputFormat: (format: OutputFormat) => void;
 }
 
 const TestGeneratorContext = createContext<
@@ -56,6 +57,13 @@ export const TestGeneratorProvider: React.FC<{ children: ReactNode }> = ({
     }));
   };
 
+  const updateOutputFormat = (format: OutputFormat) => {
+    setState((prev) => ({
+      ...prev,
+      customSettings: { ...prev.customSettings, outputFormat: format },
+    }));
+  };
+
   return (
     <TestGeneratorContext.Provider
       value={{
@@ -65,6 +73,7 @@ export const TestGeneratorProvider: React.FC<{ children: ReactNode }> = ({
         updateQuestionMode,
         updateWordCount,
         updateCustomSettings,
+        updateOutputFormat
       }}
     >
       {children}

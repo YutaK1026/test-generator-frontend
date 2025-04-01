@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import * as RadioGroup from "@radix-ui/react-radio-group";
 import styles from "./presenter.module.scss";
 import { FormLayout } from "@/components/ui/FormLayout";
 import { NavigationButtons } from "@/components/ui/NavigationButtons";
@@ -9,7 +10,7 @@ import { TEST_GENERATOR_STEPS, OutputFormat } from "@/app/types/steps";
 export interface CustomSettingsFormPresenterProps {
   testTitle: string;
   handleTitleChange: (value: string) => void;
-  outputFormat: OutputFormat[];
+  outputFormat: OutputFormat;
   handleOutputFormatChange: (format: OutputFormat) => void;
   excludePrevious: boolean;
   handleExcludePreviousChange: (checked: boolean) => void;
@@ -56,28 +57,37 @@ export const CustomSettingsFormPresenter: React.FC<
               出題形式を選択
               <span className={styles.required}>*</span>
             </label>
-            <div className={styles.settingOptions}>
-              <label className={styles.optionLabel}>
-                <input
-                  type="checkbox"
-                  checked={outputFormat.includes("english-to-japanese")}
-                  onChange={() =>
-                    handleOutputFormatChange("english-to-japanese")
-                  }
-                />
-                <span>英語→日本語</span>
-              </label>
-              <label className={styles.optionLabel}>
-                <input
-                  type="checkbox"
-                  checked={outputFormat.includes("japanese-to-english")}
-                  onChange={() =>
-                    handleOutputFormatChange("japanese-to-english")
-                  }
-                />
-                <span>日本語→英語</span>
-              </label>
-            </div>
+            <RadioGroup.Root
+              className={styles.radioGroup}
+              value={outputFormat}
+              onValueChange={(value) => handleOutputFormatChange(value as OutputFormat)}
+            >
+              <div className={styles.radioItem}>
+                <RadioGroup.Item
+                  className={styles.radioButton}
+                  value="english-to-japanese"
+                  id="r1"
+                >
+                  <RadioGroup.Indicator className={styles.radioIndicator} />
+                </RadioGroup.Item>
+                <label className={styles.radioLabel} htmlFor="r1">
+                英語→日本語
+                </label>
+              </div>
+
+              <div className={styles.radioItem}>
+                <RadioGroup.Item
+                  className={styles.radioButton}
+                  value="japanese-to-english"
+                  id="r2"
+                >
+                  <RadioGroup.Indicator className={styles.radioIndicator} />
+                </RadioGroup.Item>
+                <label className={styles.radioLabel} htmlFor="r2">
+                日本語→英語
+                </label>
+              </div>
+            </RadioGroup.Root>
           </div>
 
           <div className={styles.inputContainer}>

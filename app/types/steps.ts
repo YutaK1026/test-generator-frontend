@@ -25,7 +25,7 @@ export interface TestGeneratorState {
   questionMode: QuestionMode;
   wordCount: number;
   customSettings: {
-    outputFormat: OutputFormat[];
+    outputFormat: OutputFormat;
     excludePrevious: boolean;
     [key: string]: unknown;
   };

@@ -7,12 +7,10 @@ import { OutputFormat } from "@/app/types/steps";
 
 export const useCustomSettingsForm = () => {
   const router = useRouter();
-  const { state, updateCustomSettings, updateTestTitle } = useTestGenerator();
-
+  const { state, updateCustomSettings, updateTestTitle, updateOutputFormat } = useTestGenerator();
+  const outputFormat = state.customSettings.outputFormat
   const [testTitle, setTestTitle] = useState<string>(state.testTitle);
-  const [outputFormat, setOutputFormat] = useState<OutputFormat[]>(
-    state.customSettings.outputFormat
-  );
+
   const [excludePrevious, setExcludePrevious] = useState<boolean>(
     state.customSettings.excludePrevious
   );
@@ -22,11 +20,7 @@ export const useCustomSettingsForm = () => {
   };
 
   const handleOutputFormatChange = (format: OutputFormat) => {
-    if (outputFormat.includes(format)) {
-      setOutputFormat([]);
-    } else {
-      setOutputFormat([format]);
-    }
+    updateOutputFormat(format)
   };
 
   const handleExcludePreviousChange = (checked: boolean) => {
