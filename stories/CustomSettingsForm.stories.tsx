@@ -16,7 +16,7 @@ export const Default: Story = {
   args: {
     testTitle: "デフォルトタイトル",
     handleTitleChange: () => {},
-    outputFormat: ["english-to-japanese"],
+    outputFormat: "english-to-japanese",
     handleOutputFormatChange: () => {},
     excludePrevious: false,
     handleExcludePreviousChange: () => {},
