@@ -11,7 +11,7 @@ export const fetchTestData = async (
       questionMode: "range",
       wordCount: 20,
       customSettings: {
-        outputFormat: ["japanese-to-english"],
+        outputFormat: "japanese-to-english",
         excludePrevious: false,
         rangeStart: 1000,
         rangeEnd: 1050,
@@ -23,7 +23,7 @@ export const fetchTestData = async (
       questionMode: "random",
       wordCount: 50,
       customSettings: {
-        outputFormat: ["english-to-japanese"],
+        outputFormat: "english-to-japanese",
         excludePrevious: true,
       },
     },

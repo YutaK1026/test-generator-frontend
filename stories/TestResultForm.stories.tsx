@@ -15,12 +15,12 @@ type Story = StoryObj<typeof TestResultFormPresenter>;
 import { TestGeneratorState } from "@/app/types/steps";
 
 const defaultState: TestGeneratorState = {
-  testTitle: "デフォルトタイトル", // testTitle を追加
+  testTitle: "デフォルトタイトル",
   vocabularyType: "LEAP 英単語帳",
   questionMode: "random",
   wordCount: 20,
   customSettings: {
-    outputFormat: ["english-to-japanese"],
+    outputFormat: "english-to-japanese",
     difficulty: "normal",
     excludePrevious: false,
   },

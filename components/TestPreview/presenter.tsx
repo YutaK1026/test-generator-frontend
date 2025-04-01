@@ -18,12 +18,12 @@ const formatQuestionMode = (mode: "random" | "range"): string => {
   }
 };
 
-const formatOutputFormat = (formats: OutputFormat[]): string => {
+const formatOutputFormat = (format: OutputFormat): string => {
   const formatMap: Record<OutputFormat, string> = {
     "english-to-japanese": "英語 → 日本語",
     "japanese-to-english": "日本語 → 英語",
   };
-  return formats.map((format) => formatMap[format]).join(", ");
+  return formatMap[format];
 };
 
 export const TestPreviewPresenter: React.FC<TestPreviewPresenterProps> = ({
